@@ -1,0 +1,123 @@
+$box_width:100%;
+$typearea_width:1180px;
+$height:300px;
+$font12:12px;
+$font14:14px;
+$font16:16px;
+@import "banner";
+@import "top";
+@import "header";
+@import "nav";
+@import "main";
+@import "footer";
+%inherit {
+    width: $typearea_width;
+    height: $height;
+    background-color: orange;
+    margin: 0 auto;
+}
+
+%wave {
+    margin-bottom: 20px;
+}
+
+%gap {
+    font-size: $font12;
+    color: #cccccc;
+    margin-right: 20px;
+    text-decoration: none;
+    display: block;
+    float: left;
+}
+
+.typearea {
+    @extend %inherit;
+}
+
+.top {
+    @extend %wave;
+    background: black;
+    .typearea {
+        height: 30px;
+        line-height: 30px;
+        background: black;
+        .top_left {
+            float: left;
+            .top_font {
+                @extend %gap;
+            }
+            .top_font:hover {
+                color: #999999;
+            }
+        }
+        .top_right {
+            float: right;
+            .top_font {
+                @extend %gap;
+            }
+            .top_font:hover {
+                color: #999999;
+            }
+            .top_font:last-of-type {
+                margin-right: 0px;
+            }
+            span {
+                float: right;
+                margin-top: 10px;
+                display: block;
+                width: 10px;
+                height: 20px;
+                background: url(../images/header.png) no-repeat -8px -5px;
+            }
+        }
+    }
+}
+
+.header {
+    @extend %wave;
+    .typearea {
+        @extend %inherit;
+        .header_left {
+            float: left;
+            width: 273px;
+            height: 95px;
+            background: url(../images/header.png)no-repeat 30px -310px;
+        }
+        .header_right {
+            float: right;
+            .header_search_input {
+                width: 300px;
+                height: 36px;
+                line-height: 36px;
+                font-size: 14px;
+                border: 2px solid #E73736;
+                color: #333;
+                padding: 0 17px;
+            }
+            .header_search_btn {
+                width: 76px;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                background-color: #E73736;
+                color: #fff;
+                font-size: $font14;
+                display: inline-block;
+                margin-left: -10px;
+            }
+            .header_search_tips {}
+        }
+    }
+}
+
+.nav {
+    @extend %wave;
+}
+
+.main {
+    @extend %wave;
+}
+
+.footer {
+    @extend %wave;
+}
