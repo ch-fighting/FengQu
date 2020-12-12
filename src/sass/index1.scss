@@ -105,7 +105,9 @@ $font16:16px;
                 display: inline-block;
                 margin-left: -10px;
             }
-            .header_search_tips {}
+            .header_search_tips li {
+                float: left;
+            }
         }
     }
 }
