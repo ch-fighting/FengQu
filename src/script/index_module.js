@@ -6,6 +6,9 @@
     const $main_div = $(".main_div");
     const $banner_btn = $(".banner_btn");
     const $banner = $(".banner");
+    const $main = $(".main");
+    const $hold_top = $('.holdtop');
+    const $toTop = $('.toTop');
     $banner_btn.on("click", function() {
         $banner.hide();
     })
@@ -25,6 +28,15 @@
         $nav_btn.on("click", function() {
             $(this).addClass("nav_a").siblings('a').removeClass("nav_a");
             $main_div.eq($(this).index()).addClass("tab").siblings('div').removeClass("tab");
+            if ($(this).index() == 1) {
+                $main.css({
+                    background: '#f6ecf5'
+                });
+            } else {
+                $main.css({
+                    background: 'white'
+                })
+            }
         })
         $.each(data, function(index, value) {
             if (value.sid >= 1 && value.sid <= 10) {
@@ -84,6 +96,59 @@
             //     });
             // });
     });
+    //商城顶部悬浮
+    $(window).on("scroll", function() {
+        console.log($(window).scrollTop())
+        let $scrolltop = $(window).scrollTop();
+        if ($scrolltop >= 120) {
+            $hold_top.stop(true).animate({
+                top: 0,
+                opacity: 1
+            })
+        } else {
+            $hold_top.stop(true).animate({
+                top: -50,
+                opacity: 0
+            })
+        }
+
+        if ($scrolltop >= 200) {
+            $toTop.stop(true).animate({
+                opacity: 0.3
+            })
+        } else {
+            $toTop.stop(true).animate({
+                opacity: 0
+            })
+        }
+        if ($scrolltop >= 200) {
+            $toTop.hover(function() {
+                $toTop.css({
+                    cursor: 'pointer'
+                }, function() {
+                    return;
+                })
+            })
+            $toTop.on('click', function() {
+                $('html').stop(true).animate({
+                    scrollTop: 0
+                })
+            })
+        } else {
+            $toTop.on('click', function() {
+                $('html').stop(true).animate({
+                    scrollTop: $(window).scrollTop()
+                })
+            })
+        }
+    });
+    // 回到商城顶部
+
+
+
+
+
+
 
 
     // const $header_search_input = document.querySelector(".header_search_input");
@@ -107,50 +172,4 @@
     //     script.src = 'https://suggest.taobao.com/sug?code=utf-8&q=' + this.value + '&extras=1&area=c2c&bucketid=atb_search&pid=mm_26632258_3504122_32538762&unid=&clk1=4cddf4f853c33e3e4bf789cff50dbdae&_=1606376403337&callback=jsonp4';
     //     script.class = "produce";
     // });
-    // $.ajax({
-    //     url: 'http://localhost/dashboard/FengQu/php/index2.php',
-    //     dataType: 'json'
-    // }).done(function(data) {
-    //     $strhtml = "";
-    //     $.each(data, function(index, value) {
-    //         $strhtml += `
-    //         <a href="javascript:;">
-    //         <li>
-    //             <div class="li_left">
-    //                 <img src="${value.url}" alt="">
-    //             </div>
-    //             <div class="li_right">
-    //                 <h4>${value.title}</h4>
-    //             </div>
-    //             <p>
-    //                 ￥<span class="price-1">${value.newprice}</span>
-    //                 <span class="price-b">￥<span class="price-2">${value.price}</span></span>
-    //             </p>
-    //         </li>
-    //     </a>
-    //         `;
-    //     })
-    //     $commodity_seniority.html($strhtml);
-    // })
-    // $.ajax({
-    //     url: "http://localhost/dashboard/FengQu/php/index_muin.php",
-    //     dataType: "json"
-    // }).done(function(data) {
-    //     $strhtml = "";
-    //     $.each(data, function(index, value) {
-    //         $strhtml += `
-    //         <a href="javascript:;">
-    //         <li>
-    //             <img src="${value.url}" alt="">
-    //             <h3>${value.title}</h3>
-    //             <p>
-    //                 ￥<span class="price-1">${value.price}</span>
-    //                 <span class="price-b">￥<span class="price-2">${value.newprice}</span></span>
-    //             </p>
-    //         </li>
-    //     </a>
-    //         `;
-    //     })
-    //     $muin_list.html($strhtml);
-    // })
 }(jQuery)
