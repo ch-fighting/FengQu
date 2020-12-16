@@ -41,7 +41,7 @@
         $.each(data, function(index, value) {
             if (value.sid >= 1 && value.sid <= 10) {
                 $strhtml += `
-                <a href="javascript:;">
+                <a href="list.html">
                 <li>
                     <div class="pic">
                         <img src="${value.url}" alt="${value.title}">
@@ -56,7 +56,7 @@
             }
 
             if (value.sid >= 11 && value.sid <= 20) {
-                $strhtml1 += `<a href="javascript:;">
+                $strhtml1 += `<a href="list.html">
                         <li>
                             <div class="li_left">
                                 <img src="${value.url}" alt="">
@@ -74,7 +74,7 @@
 
             if (value.sid >= 21 && value.sid <= 30) {
                 $strhtml2 += `
-                        <a href="javascript" class="muin_li">
+                        <a href="list.html" class="muin_li">
                         <li>
                             <img src="${value.url}" alt="">
                             <h3>${value.title}</h3>

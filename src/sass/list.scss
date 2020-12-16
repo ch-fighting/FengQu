@@ -37,6 +37,12 @@ $font16:16px;
 
 .products {
     margin: 20px 0px;
+    .products_sort {
+        button {
+            border: none;
+            background: white;
+        }
+    }
     ul {
         @extend %clear;
         margin-top: 10px;

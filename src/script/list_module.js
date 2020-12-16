@@ -14,7 +14,7 @@
         $strhtml = '';
         $.each($data, function(index, value) {
             $strhtml += `
-            <a href="javascript" class="pro_li">
+            <a href="detail.html?sid=${value.sid}" class="pro_li">
                         <li>
                             <img src="${value.url}" alt="">
                             <h3>${value.title}</h3>
@@ -52,7 +52,7 @@
                     let $strhtml = '';
                     $.each(data, function(index, value) {
                         $strhtml += `
-                        <a href="javascript" class="pro_li">
+                        <a href="detail.html?sid=${value.sid}" class="pro_li">
                         <li>
                             <img src="${value.url}" alt="">
                             <h3>${value.title}</h3>

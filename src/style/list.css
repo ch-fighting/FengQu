@@ -28,6 +28,10 @@
 .products {
   margin: 20px 0px;
 }
+.products .products_sort button {
+  border: none;
+  background: white;
+}
 .products ul {
   margin-top: 10px;
 }

@@ -1,8 +1,5 @@
 <?php
-
-//1.连接数据库
 include "conn.php";
-
 //2.获取前端出入的sid
 if(isset($_GET['sid'])){
     $sid = $_GET['sid'];
