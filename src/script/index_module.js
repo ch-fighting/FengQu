@@ -13,7 +13,7 @@
         $banner.hide();
     })
     $.ajax({
-        url: 'http://localhost/dashboard/FengQu/php/index1.php',
+        url: 'http://10.31.161.55/dashboard/FengQu/php/index1.php',
         dataType: 'json'
     }).done(function(data) {
         console.log(data);

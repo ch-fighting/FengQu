@@ -6,12 +6,37 @@
         line-height: 30px;
         background: black;
         .top_left {
+            position: relative;
             float: left;
             .top_font {
+                display: block;
                 @extend %gap;
+                float: left;
             }
             .top_font:hover {
                 color: #999999;
+            }
+            .login {
+                display: block;
+                position: absolute;
+                top: 0px;
+                left: 66px;
+                width: 100px;
+            }
+            .admin {
+                font-size: 14px;
+                color: #cccccc;
+                position: absolute;
+                top: 0px;
+                left: 66px;
+                width: 200px;
+                .exit {
+                    display: block;
+                    position: absolute;
+                    top: 0px;
+                    left: 84px;
+                    @extend %gap;
+                }
             }
         }
         .top_right {

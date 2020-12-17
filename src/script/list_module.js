@@ -5,7 +5,7 @@
     let $prev = []; //li里面的商品的前一个价格
     let $next = []; //li里面的商品的后一个价格
     $.ajax({
-        url: 'http://localhost/dashboard/FengQu/php/listdata.php',
+        url: 'http://10.31.161.55/dashboard/FengQu/php/listdata.php',
         dataType: 'json'
     }).done(function(datalist) {
         console.log(datalist);
@@ -42,7 +42,7 @@
             callback: function(api) {
                 console.log(api.getCurrent()); //获取当前的点击的页码。
                 $.ajax({
-                    url: 'http://localhost/dashboard/FengQu/php/listdata.php',
+                    url: 'http://10.31.161.55/dashboard/FengQu/php/listdata.php',
                     data: {
                         page: api.getCurrent()
                     },

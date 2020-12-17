@@ -36,7 +36,7 @@
     }
     console.log($sid);
     $.ajax({
-        url: "http://localhost/dashboard/FengQu/php/detail.php",
+        url: "http://10.31.161.55/dashboard/FengQu/php/detail.php",
         data: {
             sid: $sid
         },

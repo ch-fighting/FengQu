@@ -16,7 +16,7 @@
   margin-bottom: 20px;
 }
 
-.top .typearea .top_left .top_font, .top .typearea .top_right .top_font {
+.top .typearea .top_left .top_font, .top .typearea .top_left .admin .exit, .top .typearea .top_right .top_font {
   font-size: 12px;
   color: #cccccc;
   margin-right: 20px;
@@ -89,10 +89,36 @@
   background: black;
 }
 .top .typearea .top_left {
+  position: relative;
+  float: left;
+}
+.top .typearea .top_left .top_font {
+  display: block;
   float: left;
 }
 .top .typearea .top_left .top_font:hover {
   color: #999999;
+}
+.top .typearea .top_left .login {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 66px;
+  width: 100px;
+}
+.top .typearea .top_left .admin {
+  font-size: 14px;
+  color: #cccccc;
+  position: absolute;
+  top: 0px;
+  left: 66px;
+  width: 200px;
+}
+.top .typearea .top_left .admin .exit {
+  display: block;
+  position: absolute;
+  top: 0px;
+  left: 84px;
 }
 .top .typearea .top_right {
   float: right;
