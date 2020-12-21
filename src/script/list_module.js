@@ -16,7 +16,7 @@
             $strhtml += `
             <a href="detail.html?sid=${value.sid}" class="pro_li">
                         <li>
-                            <img src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" alt="">
                             <h3>${value.title}</h3>
                             <p>
                                 ￥<span class="price1">${value.newprice}</span>
@@ -29,6 +29,11 @@
         })
         $lists.html($strhtml);
         //将li元素添加到排序前的数组中。
+        $(function() { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //显示方法：谈入
+            });
+        });
         $('.list .pro_li').each(function(index, element) { //element:原生的元素对象
             $array_default[index] = $(this); //排序前
             $array[index] = $(this); //排序后
@@ -54,7 +59,7 @@
                         $strhtml += `
                         <a href="detail.html?sid=${value.sid}" class="pro_li">
                         <li>
-                            <img src="${value.url}" alt="">
+                        <img class="lazy" data-original="${value.url}" alt="">
                             <h3>${value.title}</h3>
                             <p>
                                 ￥<span class="price1">${value.newprice}</span>
@@ -67,8 +72,13 @@
                     });
                     $lists.html($strhtml);
                     //懒加载
-                    // $("img.lazy").lazyload({ effect: "fadeIn" });
-
+                    $(function() { //页面加载完成
+                        $("img.lazy").lazyload({
+                            effect: "fadeIn" //显示方法：谈入
+                        });
+                    });
+                    $array_default = [];
+                    $array = [];
                     //将li元素添加到排序前的数组中。
                     $('.list .pro_li').each(function(index, element) { //element:原生的元素对象
                         $array_default[index] = $(this); //排序前

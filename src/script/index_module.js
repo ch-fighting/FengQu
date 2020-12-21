@@ -44,7 +44,7 @@
                 <a href="list.html">
                 <li>
                     <div class="pic">
-                        <img src="${value.url}" alt="${value.title}">
+                        <img class="lazy" data-original="${value.url}" alt="${value.title}">
                     </div>
                     <h3>${value.title}</h3>
                     <p>
@@ -59,7 +59,7 @@
                 $strhtml1 += `<a href="list.html">
                         <li>
                             <div class="li_left">
-                                <img src="${value.url}" alt="">
+                                <img class="lazy" data-original="${value.url}" alt="">
                             </div>
                             <div class="li_right">
                                 <h4>${value.title}</h4>
@@ -76,7 +76,7 @@
                 $strhtml2 += `
                         <a href="list.html" class="muin_li">
                         <li>
-                            <img src="${value.url}" alt="">
+                            <img class="lazy" data-original="${value.url}" alt="">
                             <h3>${value.title}</h3>
                             <p>
                                 ￥<span class="price-1">${value.price}</span>
@@ -90,11 +90,11 @@
         $commodityli_lists.html($strhtml);
         $commodity_seniority.html($strhtml1);
         $muin_lists.html($strhtml2)
-            // $(function() { //页面加载完成
-            //     $("img.lazy").lazyload({
-            //         effect: "fadeIn" //显示方法：谈入
-            //     });
-            // });
+        $(function() { //页面加载完成
+            $("img.lazy").lazyload({
+                effect: "fadeIn" //显示方法：谈入
+            });
+        });
     });
     //商城顶部悬浮
     $(window).on("scroll", function() {
@@ -142,13 +142,23 @@
             })
         }
     });
-    // 回到商城顶部
 
 
 
 
 
+    if (localStorage.getItem('loginname')) {
+        $('.admin').show();
+        $('.login').hide();
+        $('.admin span').html(localStorage.getItem('loginname'));
+    }
 
+    //退出登录 - 删除本地存储
+    $('.admin a').on('click', function() {
+        $('.admin').hide();
+        $('.login').show();
+        localStorage.removeItem('loginname');
+    });
 
 
     // const $header_search_input = document.querySelector(".header_search_input");

@@ -18,15 +18,39 @@
         $num.val($product_num);
     })
     $minus.on('click', function() {
-        $product_num = parseFloat($product_num);
-        1
-        if ($product_num > 0) {
-            $product_num--;
+        let $product_num1 = $num.val();
+        $product_num1 = parseFloat($product_num1);
+        if ($product_num1 > 1) {
+            $product_num1--;
         } else {
-            $product_num = 0;
+            $product_num1 = 1;
         }
-        $product_num = $product_num + '';
-        $num.val($product_num);
+        $product_num1 = $product_num1 + '';
+        $num.val($product_num1);
+    })
+
+    $num.on("input", function() {
+        let $inputnum = $num.val();
+        if ($inputnum >= 99) {
+            $num.val(99);
+        }
+        if ($inputnum <= 1) {
+            $num.val(1);
+        }
+        $inputnum = parseFloat($inputnum);
+        if (typeof $inputnum !== Number) {
+            console.log(typeof $inputnum);
+            console.log($inputnum);
+            if (isNaN($inputnum)) {
+                console.log(1)
+                $num.val(1);
+            } else {
+                console.log(2)
+                $num.val($inputnum);
+            }
+
+        }
+
     })
 
 
